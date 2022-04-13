@@ -89,6 +89,9 @@ const (
 	// QueryLogTypeNone is a QueryLogType of type None.
 	// no logging
 	QueryLogTypeNone
+	// QueryLogTypeKafka is a QueryLogType of type Kafka.
+	// Kafka stream
+	QueryLogTypeKafka
 	// QueryLogTypeMysql is a QueryLogType of type Mysql.
 	// MySQL or MariaDB database
 	QueryLogTypeMysql
@@ -103,15 +106,16 @@ const (
 	QueryLogTypeCsvClient
 )
 
-const _QueryLogTypeName = "consolenonemysqlpostgresqlcsvcsv-client"
+const _QueryLogTypeName = "consolenonekafkamysqlpostgresqlcsvcsv-client"
 
 var _QueryLogTypeNames = []string{
 	_QueryLogTypeName[0:7],
 	_QueryLogTypeName[7:11],
 	_QueryLogTypeName[11:16],
-	_QueryLogTypeName[16:26],
-	_QueryLogTypeName[26:29],
-	_QueryLogTypeName[29:39],
+	_QueryLogTypeName[16:21],
+	_QueryLogTypeName[21:31],
+	_QueryLogTypeName[31:34],
+	_QueryLogTypeName[34:44],
 }
 
 // QueryLogTypeNames returns a list of possible string values of QueryLogType.
@@ -122,12 +126,13 @@ func QueryLogTypeNames() []string {
 }
 
 var _QueryLogTypeMap = map[QueryLogType]string{
-	QueryLogTypeConsole:    _QueryLogTypeName[0:7],
-	QueryLogTypeNone:       _QueryLogTypeName[7:11],
-	QueryLogTypeMysql:      _QueryLogTypeName[11:16],
-	QueryLogTypePostgresql: _QueryLogTypeName[16:26],
-	QueryLogTypeCsv:        _QueryLogTypeName[26:29],
-	QueryLogTypeCsvClient:  _QueryLogTypeName[29:39],
+	0: _QueryLogTypeName[0:7],
+	1: _QueryLogTypeName[7:11],
+	2: _QueryLogTypeName[11:16],
+	3: _QueryLogTypeName[16:21],
+	4: _QueryLogTypeName[21:31],
+	5: _QueryLogTypeName[31:34],
+	6: _QueryLogTypeName[34:44],
 }
 
 // String implements the Stringer interface.
@@ -139,12 +144,13 @@ func (x QueryLogType) String() string {
 }
 
 var _QueryLogTypeValue = map[string]QueryLogType{
-	_QueryLogTypeName[0:7]:   QueryLogTypeConsole,
-	_QueryLogTypeName[7:11]:  QueryLogTypeNone,
-	_QueryLogTypeName[11:16]: QueryLogTypeMysql,
-	_QueryLogTypeName[16:26]: QueryLogTypePostgresql,
-	_QueryLogTypeName[26:29]: QueryLogTypeCsv,
-	_QueryLogTypeName[29:39]: QueryLogTypeCsvClient,
+	_QueryLogTypeName[0:7]:   0,
+	_QueryLogTypeName[7:11]:  1,
+	_QueryLogTypeName[11:16]: 2,
+	_QueryLogTypeName[16:21]: 3,
+	_QueryLogTypeName[21:31]: 4,
+	_QueryLogTypeName[31:34]: 5,
+	_QueryLogTypeName[34:44]: 6,
 }
 
 // ParseQueryLogType attempts to convert a string to a QueryLogType.
